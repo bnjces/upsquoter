@@ -15,9 +15,32 @@ def get_rate():
     headers = {"Content-Type": "application/json"}
 
     # Set default dimensions
-    default_length = "15"
-    default_width = "15"
-    default_height = "15"
+    default_length = "10"
+    default_width = "10"
+    default_height = "10"
+
+    packages = []
+    for _ in range(int(data['numberOfPackages'])):
+        packages.append({
+            "PackagingType": {
+                "Code": "02",
+                "Description": "Package"
+            },
+            "Dimensions": {
+                "UnitOfMeasurement": {
+                    "Code": "IN"
+                },
+                "Length": default_length,
+                "Width": default_width,
+                "Height": default_height
+            },
+            "PackageWeight": {
+                "UnitOfMeasurement": {
+                    "Code": "LBS"
+                },
+                "Weight": data['weight']
+            }
+        })
 
     payload = {
         "UPSSecurity": {
@@ -48,26 +71,7 @@ def get_rate():
                         "CountryCode": data['recipientCountry']
                     }
                 },
-                "Package": {
-                    "PackagingType": {
-                        "Code": "02",
-                        "Description": "Package"
-                    },
-                    "Dimensions": {
-                        "UnitOfMeasurement": {
-                            "Code": "IN"
-                        },
-                        "Length": default_length,
-                        "Width": default_width,
-                        "Height": default_height
-                    },
-                    "PackageWeight": {
-                        "UnitOfMeasurement": {
-                            "Code": "LBS"
-                        },
-                        "Weight": data['weight']
-                    }
-                }
+                "Package": packages
             }
         }
     }

@@ -11,24 +11,24 @@
         <h1>UPS Shipping Rate Quote</h1>
         <form id="shipping-form">
             <div class="form-group">
-                <label for="shipper-city">Shipper City:</label>
-                <input type="text" id="shipper-city" name="shipperCity" required>
-            </div>
-            <div class="form-group">
                 <label for="shipper-postal-code">Shipper Postal Code:</label>
                 <input type="text" id="shipper-postal-code" name="shipperPostalCode" value="08108" required>
+            </div>
+            <div class="form-group">
+                <label for="shipper-city">Shipper City:</label>
+                <input type="text" id="shipper-city" name="shipperCity" required readonly>
             </div>
             <div class="form-group">
                 <label for="shipper-country">Shipper Country:</label>
                 <input type="text" id="shipper-country" name="shipperCountry" required>
             </div>
             <div class="form-group">
-                <label for="recipient-city">Recipient City:</label>
-                <input type="text" id="recipient-city" name="recipientCity" required>
-            </div>
-            <div class="form-group">
                 <label for="recipient-postal-code">Recipient Postal Code:</label>
                 <input type="text" id="recipient-postal-code" name="recipientPostalCode" required>
+            </div>
+            <div class="form-group">
+                <label for="recipient-city">Recipient City:</label>
+                <input type="text" id="recipient-city" name="recipientCity" required readonly>
             </div>
             <div class="form-group">
                 <label for="recipient-country">Recipient Country:</label>
@@ -37,6 +37,10 @@
             <div class="form-group">
                 <label for="weight">Package Weight (lbs):</label>
                 <input type="number" id="weight" name="weight" required>
+            </div>
+            <div class="form-group">
+                <label for="number-of-packages">Number of Packages:</label>
+                <input type="number" id="number-of-packages" name="numberOfPackages" value="1" required>
             </div>
             <button type="submit">Get Rate Quote</button>
         </form>
