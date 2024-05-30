@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Rate Quote</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>UPS Shipping Rate Quote</h1>
+        <form id="shipping-form">
+            <div class="form-group">
+                <label for="shipper-city">Shipper City:</label>
+                <input type="text" id="shipper-city" name="shipperCity" required>
+            </div>
+            <div class="form-group">
+                <label for="shipper-state">Shipper State:</label>
+                <input type="text" id="shipper-state" name="shipperState" required>
+            </div>
+            <div class="form-group">
+                <label for="shipper-country">Shipper Country:</label>
+                <input type="text" id="shipper-country" name="shipperCountry" required>
+            </div>
+            <div class="form-group">
+                <label for="recipient-city">Recipient City:</label>
+                <input type="text" id="recipient-city" name="recipientCity" required>
+            </div>
+            <div class="form-group">
+                <label for="recipient-state">Recipient State:</label>
+                <input type="text" id="recipient-state" name="recipientState" required>
+            </div>
+            <div class="form-group">
+                <label for="recipient-country">Recipient Country:</label>
+                <input type="text" id="recipient-country" name="recipientCountry" required>
+            </div>
+            <div class="form-group">
+                <label for="length">Package Length (in):</label>
+                <input type="number" id="length" name="length" required>
+            </div>
+            <div class="form-group">
+                <label for="width">Package Width (in):</label>
+                <input type="number" id="width" name="width" required>
+            </div>
+            <div class="form-group">
+                <label for="height">Package Height (in):</label>
+                <input type="number" id="height" name="height" required>
+            </div>
+            <div class="form-group">
+                <label for="weight">Package Weight (lbs):</label>
+                <input type="number" id="weight" name="weight" required>
+            </div>
+            <button type="submit">Get Rate Quote</button>
+        </form>
+        <div id="results"></div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
+Create the CSS File:
+
+Inside the ups-shipping-quote directory, create a new directory called static.
+Inside the static directory, create a new file named styles.css.
+Paste the CSS code into styles.css.
+css
+Copy code
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+#results {
+    margin-top: 20px;
+}
