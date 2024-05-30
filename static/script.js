@@ -2,26 +2,20 @@ document.getElementById('shipping-form').addEventListener('submit', function(eve
     event.preventDefault();
 
     const shipperCity = document.getElementById('shipper-city').value;
-    const shipperState = document.getElementById('shipper-state').value;
+    const shipperPostalCode = document.getElementById('shipper-postal-code').value;
     const shipperCountry = document.getElementById('shipper-country').value;
     const recipientCity = document.getElementById('recipient-city').value;
-    const recipientState = document.getElementById('recipient-state').value;
+    const recipientPostalCode = document.getElementById('recipient-postal-code').value;
     const recipientCountry = document.getElementById('recipient-country').value;
-    const length = document.getElementById('length').value;
-    const width = document.getElementById('width').value;
-    const height = document.getElementById('height').value;
     const weight = document.getElementById('weight').value;
 
     const data = {
         shipperCity,
-        shipperState,
+        shipperPostalCode,
         shipperCountry,
         recipientCity,
-        recipientState,
+        recipientPostalCode,
         recipientCountry,
-        length,
-        width,
-        height,
         weight
     };
 

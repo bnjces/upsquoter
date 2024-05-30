@@ -14,6 +14,11 @@ def get_rate():
     ups_url = "https://onlinetools.ups.com/rest/Rate"
     headers = {"Content-Type": "application/json"}
 
+    # Set default dimensions
+    default_length = "15"
+    default_width = "15"
+    default_height = "15"
+
     payload = {
         "UPSSecurity": {
             "UsernameToken": {
@@ -32,14 +37,14 @@ def get_rate():
                 "Shipper": {
                     "Address": {
                         "City": data['shipperCity'],
-                        "StateProvinceCode": data['shipperState'],
+                        "PostalCode": data['shipperPostalCode'],
                         "CountryCode": data['shipperCountry']
                     }
                 },
                 "ShipTo": {
                     "Address": {
                         "City": data['recipientCity'],
-                        "StateProvinceCode": data['recipientState'],
+                        "PostalCode": data['recipientPostalCode'],
                         "CountryCode": data['recipientCountry']
                     }
                 },
@@ -52,9 +57,9 @@ def get_rate():
                         "UnitOfMeasurement": {
                             "Code": "IN"
                         },
-                        "Length": data['length'],
-                        "Width": data['width'],
-                        "Height": data['height']
+                        "Length": default_length,
+                        "Width": default_width,
+                        "Height": default_height
                     },
                     "PackageWeight": {
                         "UnitOfMeasurement": {
