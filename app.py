@@ -3,6 +3,10 @@ import requests
 
 app = Flask(__name__)
 
+# UPS API credentials
+UPS_CLIENT_ID = 'your_client_id'
+UPS_CLIENT_SECRET = 'your_client_secret'
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -12,12 +16,15 @@ def get_rate():
     data = request.json
 
     ups_url = "https://onlinetools.ups.com/rest/Rate"
-    headers = {"Content-Type": "application/json"}
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Basic {UPS_CLIENT_ID}:{UPS_CLIENT_SECRET}"
+    }
 
     # Set default dimensions
-    default_length = "10"
-    default_width = "10"
-    default_height = "10"
+    default_length = "15"
+    default_width = "15"
+    default_height = "15"
 
     packages = []
     for _ in range(int(data['numberOfPackages'])):
@@ -45,8 +52,8 @@ def get_rate():
     payload = {
         "UPSSecurity": {
             "UsernameToken": {
-                "Username": "your_username",
-                "Password": "your_password"
+                "Username": UPS_CLIENT_ID,
+                "Password": UPS_CLIENT_SECRET
             },
             "ServiceAccessToken": {
                 "AccessLicenseNumber": "your_access_key"
