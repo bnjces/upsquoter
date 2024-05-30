@@ -4,8 +4,8 @@ import requests
 app = Flask(__name__)
 
 # UPS API credentials
-UPS_CLIENT_ID = 'your_client_id'
-UPS_CLIENT_SECRET = 'your_client_secret'
+UPS_CLIENT_ID = 'clientid'
+UPS_CLIENT_SECRET = 'clientsecret'
 
 @app.route('/')
 def index():

@@ -28,7 +28,12 @@ document.getElementById('shipping-form').addEventListener('submit', function(eve
         },
         body: JSON.stringify(data)
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
     .then(data => {
         let results = document.getElementById('results');
         results.innerHTML = `<h2>Rate Quotes</h2>`;
@@ -38,6 +43,8 @@ document.getElementById('shipping-form').addEventListener('submit', function(eve
     })
     .catch(error => {
         console.error('Error:', error);
+        let results = document.getElementById('results');
+        results.innerHTML = `<p>Error fetching rate quotes. Please try again later.</p>`;
     });
 });
 
